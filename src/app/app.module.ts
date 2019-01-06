@@ -4,13 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+// Import responsaveis por interceptar as requisições HTTP in memory. Necessário retirar para utilização de servidor real.
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+import { InMemoryDatabase } from './in-memory-database'
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase) // Responsavel por interceptar a requisição HTTP in memory. Necessário retirar para utilização de servidor real.
   ],
   providers: [],
   bootstrap: [AppComponent]
